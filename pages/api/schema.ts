@@ -1,25 +1,20 @@
 import { schemaComposer } from "graphql-compose";
 
-const CityTC = schemaComposer.createObjectTC(`
-  type City {
-    code: String!
-    name: String!
-    population: Number
-    countryCode: String
-    tz: String
-  }
-`);
-
-const CountryTC = schemaComposer.createObjectTC({
-  name: "Country",
+schemaComposer.createObjectTC({
+  name: "Note",
   fields: {
-    title: "String",
-    geo: `type LonLat { lon: Float, lat: Float }`,
+    id: "ID!",
+    title: "String!",
+    description: "String!",
   },
 });
 
-CityTC.addFields({
-  country: CountryTC,
+schemaComposer.Query.addFields({
+  notes: {
+    type: "[Note]",
+    args: {},
+    resolve: () => [{ id: "123", title: "Title", description: "Description" }],
+  },
 });
 
 export default schemaComposer.buildSchema();
