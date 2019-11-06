@@ -29,11 +29,13 @@ const Home = ({ notes }: InferProps<typeof Home.propTypes>) => (
 // TODO: Generate a query for this portion
 // How to know it requires a query?
 Home.propTypes = {
-  notes: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 Home.defaultProps = {
