@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { InferProps } from "prop-types";
 import Head from "next/head";
 import Nav from "../components/nav";
 
-const Home = ({ notes }) => (
+const Home = ({ notes }: InferProps<typeof Home.propTypes>) => (
   <div>
     <Head>
       <title>Home</title>
