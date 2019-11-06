@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --check \"**/*.js\" --check \"**/*.ts\" --write --ignore-path .gitignore"
+    "format": "prettier --check \"**/*.js\" --check \"**/*.ts\" --write --ignore-path .gitignore",
+    "generate:types": "node ./utils/generate-types pages"
   },
   "dependencies": {
+    "extract-react-types": "^0.22.1",
     "graphiql": "^0.16.0",
     "graphql": "^14.5.8",
     "graphql-compose": "^7.4.3",
@@ -23,6 +25,10 @@
     "@types/node": "^12.12.6",
     "@types/react": "^16.9.11",
     "@zeit/next-css": "^1.0.1",
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.5",
+    "lodash": "^4.17.15",
+    "mri": "^1.1.4",
     "prettier": "^1.18.2",
     "typescript": "^3.7.2",
     "webpack-merge": "^4.2.2"

@@ -1,12 +1,13 @@
 import GraphiQL from "graphiql";
 import fetch from "isomorphic-unfetch";
 import localStorage from "localStorage";
+import { InferProps } from "prop-types";
 import "graphiql/graphiql.css";
 
 const isServer = () => typeof window === `undefined`;
 
-const GraphiQLPage = () =>
-  isServer() ? null : (
+function GraphiQLPage({  }: InferProps<typeof GraphiQLPage.propTypes>) {
+  return isServer() ? null : (
     <div style={{ width: "100%", height: "100vh" }}>
       <GraphiQL
         editorTheme="solarized light"
@@ -15,6 +16,9 @@ const GraphiQLPage = () =>
       />
     </div>
   );
+}
+
+GraphiQLPage.propTypes = {};
 
 function graphQLFetcher(graphQLParams) {
   return fetch("/api/graphql", {
