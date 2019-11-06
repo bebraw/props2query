@@ -1,4 +1,4 @@
-import { schemaComposer } from "graphql-compose"
+import { schemaComposer } from "graphql-compose";
 
 const CityTC = schemaComposer.createObjectTC(`
   type City {
@@ -11,15 +11,15 @@ const CityTC = schemaComposer.createObjectTC(`
 `);
 
 const CountryTC = schemaComposer.createObjectTC({
-  name: 'Country',
+  name: "Country",
   fields: {
-    title: 'String',
+    title: "String",
     geo: `type LonLat { lon: Float, lat: Float }`,
-  }
+  },
 });
 
 CityTC.addFields({
-  country: CountryTC
+  country: CountryTC,
 });
 
 export default schemaComposer.buildSchema();

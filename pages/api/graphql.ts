@@ -10,13 +10,7 @@ export default async function handle(
 ) {
   const { query, variables } = req.body;
 
-  graphql(
-    schema,
-    query,
-    null,
-    null,
-    variables
-  )
+  graphql(schema, query, null, null, variables)
     .then(result => {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(attachErrorCodes(result)));
